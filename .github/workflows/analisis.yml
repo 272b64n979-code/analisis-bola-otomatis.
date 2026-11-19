@@ -1,0 +1,23 @@
+
+name: Analisis Bola Harian
+
+on:
+  schedule:
+    - cron: '0 11 * * *'
+  workflow_dispatch:
+
+jobs:
+  analisis:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Mengambil program
+        uses: actions/checkout@v4
+
+      - name: Menyiapkan Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Menjalankan program
+        run: python main.py
